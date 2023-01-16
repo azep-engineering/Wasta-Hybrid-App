@@ -83,5 +83,12 @@ npx cap open android
 Once Android Studio launches, you can build your app through the standard Android Studio workflow.
 
 
+## Reference
+
+https://github.com/jepiqueau/react-sqlite-app-starter
+
+https://github.com/capacitor-community/sqlite
+
+
 
 
