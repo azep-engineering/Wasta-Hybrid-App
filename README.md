@@ -22,13 +22,7 @@ meaning that it will not work in IE11 without additional JavaScript transformati
 
 ## Installation 🚧
 
-To start building your App using this Starter App, clone this repo to a new directory:
-
-```bash
-git clone https://github.com/jepiqueau/react-sqlite-app-starter.git 
-cd react-sqlite-app-starter
-git remote rm origin
-```
+If Ionic is not installed follow this blog - https://dev.to/davidkou/using-ionic-and-react-to-create-electron-desktop-app-a-step-by-step-tutorial-and-troubleshooting-1dk2
 
  - then install it
 
