@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButtons, IonMenuButton, IonButton, IonGrid, IonRow, IonCol } from '@ionic/react';
 import './index.css';
-import './index.css';
 import Table from '../../components/table/index';
+import ComputerPcService from '../../services/computerPc';
 
 interface DataProps {
   title: string,
@@ -14,6 +14,11 @@ interface DataProps {
 const ComputerPC: React.FC = () => {
   const [data, setData] = useState([]);
   const history = useHistory();
+
+  useEffect(() => {
+    // let test = ComputerPcService.getAll();
+    // setData();
+  }, []);
 
   const handleNavigateNewForm = () => {
     history.push('/computerPc/add')

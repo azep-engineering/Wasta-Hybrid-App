@@ -6,7 +6,7 @@ import {
 } from '@ionic/react';
 import './index.css';
 import Table from '../../components/table/index';
-import './index.css'
+import CompanyService from '../../services/company';
 
 const Company: React.FC = () => {
   const [data, setData] = useState([]);

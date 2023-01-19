@@ -1,5 +1,8 @@
 class ComputerPcService {
-  getAll () {
+  static getAll() {
+    throw new Error('Method not implemented.');
+  }
+  getAll() {
     return [
       {
         title: 'Dev Bee',
