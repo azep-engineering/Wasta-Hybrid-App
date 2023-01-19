@@ -1,0 +1,27 @@
+ion-grid {
+  --ion-grid-width: 100%;
+
+  --ion-grid-width-xs: 50%;
+  --ion-grid-width-sm: 288px;
+  --ion-grid-width-md: 100%;
+  --ion-grid-width-lg: 100%;
+  --ion-grid-width-xl: 100%;
+
+  --ion-grid-column-padding: 10px;
+}
+.table-grid {
+  border: 1px solid #CDD0CB;
+  border-radius: 4px;
+}
+ion-row:first-child {
+  color: #CDD0CB;
+}
+ion-row {
+  border-bottom: 1px solid #CDD0CB;
+}
+ion-row:last-child {
+  border-bottom: none;
+}
+.c-pointer {
+  cursor: pointer;
+}

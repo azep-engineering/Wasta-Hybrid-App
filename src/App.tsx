@@ -1,8 +1,19 @@
 import React, { useState }  from 'react';
+import { IonReactRouter } from '@ionic/react-router';
+import { Redirect, Route } from 'react-router-dom';
 import {
-  IonApp,
-  setupIonicReact} from '@ionic/react';
-import Tab2 from './pages/Tab2';
+  IonApp, IonRouterOutlet, IonSplitPane, setupIonicReact
+} from '@ionic/react';
+
+// Pages
+import Login from './pages/login/index';
+import Dashboard from './pages/dashboard/index';
+import Menu from './components/menu/index';
+import Company from './pages/company/index';
+import ComputerPC from './pages/computerPc/index';
+import CompanyForm from './pages/company/form';
+import ComputerPcForm from './pages/computerPc/form';
+
 import { SQLiteHook, useSQLite } from 'react-sqlite-hook';
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -58,7 +69,31 @@ const App: React.FC = () => {
 
   return (
     <IonApp>
-     <Tab2/>
+      <IonReactRouter>
+        <Route exact={true} path='/'>
+          <Login />
+        </Route>
+        <IonSplitPane when='md' contentId='main' style={{disabled: true}}>
+          <Menu />
+          <IonRouterOutlet id='main'>
+            <Route exact={true} path='/dashboard'>
+              <Dashboard />
+            </Route>
+            <Route exact={true} path='/company'>
+              <Company />
+            </Route>
+            <Route exact={true} path='/computerPc'>
+              <ComputerPC />
+            </Route>
+            <Route exact={true} path='/company/:formId'>
+              <CompanyForm />
+            </Route>
+            <Route exact={true} path='/computerPc/:formId'>
+              <ComputerPcForm />
+            </Route>
+          </IonRouterOutlet>
+        </IonSplitPane>
+      </IonReactRouter>
     </IonApp>
   );
 };
