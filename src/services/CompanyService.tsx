@@ -3,7 +3,7 @@ import { CompanyRepository } from "../Repository/CompanyRepository";
 import { Company } from "../Repository/Entities/company";
 
 export class CompanyService {
-  async getAll () {
+   async getAll () {
     let repo = new CompanyRepository();
     var result = await repo.GetAll();
     console.log(result);

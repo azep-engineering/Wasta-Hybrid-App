@@ -17,40 +17,25 @@ const CompanyPage: React.FC =  () => {
   const history = useHistory();
   const location = useLocation();
 
-useIonViewDidEnter(()=>{
-  async function getAndSetData(){
-    
-    let response = await service.getAll();
-    
-    setData(response);
-  }
-  if(location.pathname === '/company'){
-    getAndSetData();
-  }
-  
-},[location.key])
+const service =  new CompanyService();
+  useEffect(() => {
 
-  // useEffect(() => {
-
-  //   async function getAndSetData(){
-  //     console.log("23123123");
-  //     let response = await service.getAll();
-      
-  //     setData(response);
-  //   }
-  //   getAndSetData();
-  // },[location.key])
+    if(location.pathname === '/company'){
+    service.getAll().then((result)=>{
+    setData(result);
+  })
+    }
+    
+  },[location.key])
 
   const handleNavigateNewForm = () => {
     history.push('/company/add')
   };
 
-  const service =  new CompanyService();
 
 
-  
 
-  service.getAll();
+
   const data1 = [{
     id :1,
     title: "hello",
@@ -67,8 +52,6 @@ useIonViewDidEnter(()=>{
     createdDate: "1/1/2020",
     updatedDate: "1/1/2020"
   }];
-
-  console.log("-------",data);
 
 
   return (
