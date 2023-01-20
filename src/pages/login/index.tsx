@@ -2,8 +2,19 @@ import {
 	IonPage, IonHeader, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonFooter,
 	IonGrid, IonRow, IonCol, IonItem, IonInput, IonLabel, IonButton
 } from '@ionic/react';
+import { useHistory } from 'react-router';
+import { isLoggedInScope } from '../../App';
+
+
+
 
 const Login: React.FC = () => {
+	const history = useHistory();
+	const HandleLogin=()=>{
+		isLoggedInScope.SetisLoggedIn(true);
+		history.push('/Dashboard');
+		
+	}
   return (
     <IonPage>
       <IonHeader>
@@ -28,7 +39,7 @@ const Login: React.FC = () => {
 									<IonLabel position='floating'>Password</IonLabel>
 									<IonInput type='password' placeholder='Enter password' />
 								</IonItem>
-								<IonButton shape='round' color='primary' expand='full' class='ion-margin'>Login</IonButton>
+								<IonButton  onClick={HandleLogin} shape='round' color='primary' expand='full' class='ion-margin'>Login</IonButton>
 							</IonCardContent>
 						</IonCard>
 					</IonCol>

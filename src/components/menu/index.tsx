@@ -9,11 +9,12 @@ import {
   IonItem,
   IonIcon,
   IonMenuToggle,
-  IonLabel
+  IonLabel,
+  IonButton
 } from '@ionic/react';
-import { mailOutline, mailSharp } from 'ionicons/icons';
+import { apps, home, laptopOutline } from 'ionicons/icons';
 import { useLocation } from 'react-router-dom';
-import './index.css'
+import './index.css';
 
 interface AppPage {
   title: string,
@@ -26,20 +27,20 @@ const appPages: AppPage[] = [
   {
     title: 'Dashboard',
     url: '/dashboard',
-    iosIcon: mailOutline,
-    mdIcon: mailSharp
+    iosIcon: apps,
+    mdIcon: apps
   },
   {
     title: 'Company',
     url: '/company',
-    iosIcon: mailOutline,
-    mdIcon: mailSharp
+    iosIcon: home,
+    mdIcon: home
   },
   {
     title: 'Computer PC',
     url: '/computerPc',
-    iosIcon: mailOutline,
-    mdIcon: mailSharp
+    iosIcon: laptopOutline,
+    mdIcon: laptopOutline
   }
 ]
 
@@ -52,12 +53,15 @@ const Menu: React.FC = () => {
         <IonHeader>
           <IonToolbar>
             <IonTitle>Wasta</IonTitle>
+          
           </IonToolbar>
+          
         </IonHeader>
         <IonContent>
+       
           <IonList id='navigations-list'>
             {appPages.map(({title, url, iosIcon, mdIcon}, index) => (
-              <IonMenuToggle key={index} autoHide={false}>
+              <IonMenuToggle  key={index} autoHide={false}>
                 <IonItem class={location.pathname.includes(url) ? 'selected' : ''} routerLink={url} routerDirection='none' lines='none' detail={false}>
                   <IonIcon slot='start' ios={iosIcon} md={mdIcon} />
                   <IonLabel>{ title }</IonLabel>

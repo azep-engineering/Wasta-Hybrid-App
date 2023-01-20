@@ -6,6 +6,7 @@ import {
 } from '@ionic/react';
 import { CreateInfo, GetInfo } from '../../Repository/TestRepo';
 import './form.css';
+import { ComputerPc } from '../../Repository/Entities/computerPc';
 
 const ComputerPcForm: FC = () => {
   const [businessRn, setBusinessRn] = useState('');
@@ -37,8 +38,35 @@ const ComputerPcForm: FC = () => {
   const [compayIconLocationA4, setCompayIconLocationA4] = useState('');
 
   const handleSubmit = async (event : any) => {
-    // prevents the submit button from refreshing the page
-    // await CreateInfo();
+      let data: ComputerPc = {
+        id : 0,
+        businessRn : businessRn,
+        companyNo : companyNo,
+        englishName : englishName,
+        arabicName : arabicName,
+        phoneNo : phoneNo,
+        address : address,
+        dateHijri : dateHijri,
+        dateGregorian : dateGregorian,
+        dateEstablishment : dateEstablishment,
+        buildingNo : buildingNo,
+        englishStreetName : englishStreetName,
+        arabicStreetName : arabicStreetName,
+        englishDistrict : englishDistrict,
+        arabicDistrict : arabicDistrict,
+        englishCity : englishCity,
+        arabicCity : arabicCity,
+        englishCountry : englishCountry,
+        arabicCountry : arabicCountry,
+        additionalNo : additionalNo,
+        postalCode : postalCode,
+        secondBusinessId : secondBusinessId,
+        secondBusinessIdType : secondBusinessIdType,
+        compayIconLocation80 : compayIconLocation80,
+        compayIconLocationA4 : compayIconLocationA4,
+      }
+
+      console.log(data);
   };
 
   return (
@@ -75,13 +103,13 @@ const ComputerPcForm: FC = () => {
             <IonCol>
               <IonItem className='form-item'>
                 <IonLabel position='stacked' className='label'>English Name</IonLabel>
-                <IonInput className='custom' onIonInput={(e : any) => setEnglishName(e.target.value)} value={arabicName} type='text' placeholder='Enter english name' />
+                <IonInput className='custom' onIonInput={(e : any) => setEnglishName(e.target.value)} value={englishName} type='text' placeholder='Enter english name' />
               </IonItem>
             </IonCol>
             <IonCol>
               <IonItem className='form-item'>
                 <IonLabel position='stacked' className='label'>Arabic Name</IonLabel>
-                <IonInput className='custom' onIonInput={(e : any) => setEnglishName(e.target.value)} value={englishName} type='text' placeholder='Enter arabic name' />
+                <IonInput className='custom' onIonInput={(e : any) => setArabicName(e.target.value)} value={arabicName} type='text' placeholder='Enter arabic name' />
               </IonItem>
             </IonCol>
           </IonRow>
@@ -92,7 +120,7 @@ const ComputerPcForm: FC = () => {
             <IonCol>
               <IonItem className='form-item'>
                 <IonLabel position='stacked' className='label'>Phone 1</IonLabel>
-                <IonInput className='custom' onIonInput={(e : any) => setPhoneNo(e.target.value)} value={phoneNo} type='number' placeholder='Enter Phone number' />
+                <IonInput className='custom' onIonInput={(e : any) => setPhoneNo(e.target.value)} value={phoneNo}  type='number' placeholder='Enter Phone number' />
               </IonItem>
             </IonCol>
           </IonRow>
