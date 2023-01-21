@@ -6,14 +6,15 @@ import './index.css'
 interface TableProps {
   data: {
     id: number,
-    title: string,
-    createdDate: string,
-    updatedDate: string
+    businessRn: string,
+    companyNo: string,
+    englishName: string,
+    phoneNo: string
   }[],
   tableType: string
 }
 
-const columnNames = ['Title', 'Created', 'Updated', 'Action']
+const columnNames = ['Business RN', 'Company No', 'English Name', 'Phone No', 'Action']
 
 const Table: FC<TableProps> = ({ data, tableType }) => {
 
@@ -33,11 +34,12 @@ const Table: FC<TableProps> = ({ data, tableType }) => {
             )
           }
         </IonRow>
-        {data.map(({id, title, createdDate, updatedDate}) => 
+        {data.map(({id, businessRn, companyNo, englishName, phoneNo}) => 
           <IonRow key={id} class='ion-align-items-center'>
-            <IonCol class='ion-padding-start'>{ title }</IonCol>
-            <IonCol>{ createdDate }</IonCol>
-            <IonCol>{ updatedDate }</IonCol>
+            <IonCol class='ion-padding-start'>{ businessRn }</IonCol>
+            <IonCol>{ companyNo }</IonCol>
+            <IonCol>{ englishName }</IonCol>
+            <IonCol>{ phoneNo }</IonCol>
             <IonCol>
               <IonButton size='small' onClick={() => handleNavigateEditForm(id)}>Edit</IonButton>
             </IonCol>

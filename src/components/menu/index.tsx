@@ -9,8 +9,7 @@ import {
   IonItem,
   IonIcon,
   IonMenuToggle,
-  IonLabel,
-  IonButton
+  IonLabel
 } from '@ionic/react';
 import { apps, home, laptopOutline } from 'ionicons/icons';
 import { useLocation } from 'react-router-dom';
@@ -53,12 +52,9 @@ const Menu: React.FC = () => {
         <IonHeader>
           <IonToolbar>
             <IonTitle>Wasta</IonTitle>
-          
           </IonToolbar>
-          
         </IonHeader>
         <IonContent>
-       
           <IonList id='navigations-list'>
             {appPages.map(({title, url, iosIcon, mdIcon}, index) => (
               <IonMenuToggle  key={index} autoHide={false}>

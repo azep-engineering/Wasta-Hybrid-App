@@ -9,8 +9,7 @@ import Table from '../../components/table/index';
 import { CompanyService } from '../../services/CompanyService';
 import { Company} from "../../Repository/Entities/company"; 
 import { useLocation } from 'react-router';
-
-import { match } from 'react-router';
+import './index.css';
 
 const CompanyPage: React.FC =  () => {
   const [data, setData] = useState<Company[]>([]);
@@ -19,40 +18,36 @@ const CompanyPage: React.FC =  () => {
 
 const service =  new CompanyService();
   useEffect(() => {
-
     if(location.pathname === '/company'){
-    service.getAll().then((result)=>{
-    setData(result);
-  })
+      service.getAll().then((result)=>{
+      setData(result);
+    })
     }
-    
-  },[location.key])
+  },[location.key]);
 
   const handleNavigateNewForm = () => {
-    history.push('/company/add')
+    history.push('/company/add');
   };
-
-
-
-
 
   const data1 = [{
     id :1,
-    title: "hello",
-    createdDate: "1/1/2020",
-    updatedDate: "1/1/2020"
+    businessRn: "5764378",
+    companyNo: "92169934",
+    englishName: "Dev Bee",
+    phoneNo: "87473656623"
   },{
     id :2,
-    title: "hello",
-    createdDate: "1/1/2020",
-    updatedDate: "1/1/2020"
+    businessRn: "083519",
+    companyNo: "5689457",
+    englishName: "Dev Bee",
+    phoneNo: "7273657823"
   },{
     id :3,
-    title: "hello",
-    createdDate: "1/1/2020",
-    updatedDate: "1/1/2020"
+    businessRn: "24896",
+    companyNo: "143459",
+    englishName: "Dev Bee",
+    phoneNo: "904562314"
   }];
-
 
   return (
     <IonPage>

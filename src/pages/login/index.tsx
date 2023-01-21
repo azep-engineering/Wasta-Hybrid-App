@@ -5,16 +5,12 @@ import {
 import { useHistory } from 'react-router';
 import { isLoggedInScope } from '../../App';
 
-
-
-
 const Login: React.FC = () => {
 	const history = useHistory();
 	const HandleLogin=()=>{
 		isLoggedInScope.SetisLoggedIn(true);
-		history.push('/Dashboard');
-		
-	}
+		history.push('/dashboard');
+	};
   return (
     <IonPage>
       <IonHeader>
