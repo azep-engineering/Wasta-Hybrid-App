@@ -1,8 +1,19 @@
 import React, { useState }  from 'react';
+import { IonReactRouter } from '@ionic/react-router';
+import { Route } from 'react-router-dom';
 import {
-  IonApp,
-  setupIonicReact} from '@ionic/react';
-import Tab2 from './pages/Tab2';
+  IonApp, IonRouterOutlet, IonSplitPane, setupIonicReact
+} from '@ionic/react';
+
+// Pages
+import Login from './pages/login/index';
+import Dashboard from './pages/dashboard/index';
+import Menu from './components/menu/index';
+import CompanyPage from './pages/company/index';
+import ComputerPC from './pages/computerPc/index';
+import CompanyForm from './pages/company/form';
+import ComputerPcForm from './pages/computerPc/form';
+
 import { SQLiteHook, useSQLite } from 'react-sqlite-hook';
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -32,6 +43,11 @@ interface existingConnInterface {
   setExistConn: React.Dispatch<React.SetStateAction<boolean>>,
 }
 
+interface isLoggedInInterface {
+  isLoggedIn: boolean,
+  SetisLoggedIn: React.Dispatch<React.SetStateAction<boolean>>,
+}
+
 // Singleton SQLite Hook
 export let sqlite: SQLiteHook;
 // Existing Connections Store
@@ -39,11 +55,15 @@ export let existingConn: existingConnInterface;
 // Is Json Listeners used
 export let isJsonListeners: JsonListenerInterface;
 
+export let isLoggedInScope: isLoggedInInterface;
+
 setupIonicReact();
 
 const App: React.FC = () => {
   const [existConn, setExistConn] = useState(false);
+  const [isLoggedIn,SetisLoggedIn] = useState(false);
   existingConn = {existConn: existConn, setExistConn: setExistConn};
+  isLoggedInScope={isLoggedIn:isLoggedIn, SetisLoggedIn : SetisLoggedIn};
 
   // !!!!! if you do not want to use the progress events !!!!!
   // since react-sqlite-hook 2.1.0
@@ -58,7 +78,31 @@ const App: React.FC = () => {
 
   return (
     <IonApp>
-     <Tab2/>
+      <IonReactRouter>
+        <Route exact={true} path='/'>
+          <Login />
+        </Route>
+        <IonSplitPane when='md' hidden={!isLoggedIn} contentId='main' style={{disabled: true}}>
+          <Menu />  
+          <IonRouterOutlet id='main'>
+            <Route exact={true} path='/dashboard'>
+              <Dashboard />
+            </Route>
+            <Route exact={true} path='/company'>
+              <CompanyPage />
+            </Route>
+            <Route exact={true} path='/computerPc'>
+              <ComputerPC />
+            </Route>
+            <Route exact={true} path='/company/:formId'>
+              <CompanyForm />
+            </Route>
+            <Route exact={true} path='/computerPc/:formId'>
+              <ComputerPcForm />
+            </Route>
+          </IonRouterOutlet>
+        </IonSplitPane>
+      </IonReactRouter>
     </IonApp>
   );
 };

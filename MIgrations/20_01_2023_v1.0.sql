@@ -1,0 +1,28 @@
+Create Table IF NOT EXISTS Companies
+(
+id INTEGER PRIMARY KEY NOT NULL,
+businessRn TEXT NULL,
+companyNo TEXT NULL,
+englishName TEXT NULL,
+arabicName TEXT NULL,
+phoneNo TEXT NULL,
+address TEXT NULL,
+dateHijri TEXT NULL,
+dateGregorian TEXT NULL,
+dateEstablishment TEXT NULL,
+buildingNo TEXT NULL,
+englishStreetName TEXT NULL,
+arabicStreetName TEXT NULL,
+englishDistrict TEXT NULL,
+arabicDistrict TEXT NULL,
+englishCity TEXT NULL,
+arabicCity TEXT NULL,
+englishCountry TEXT NULL,
+arabicCountry TEXT NULL,
+additionalNo TEXT NULL,
+postalCode TEXT NULL,
+secondBusinessId TEXT NULL,
+secondBusinessIdType TEXT NULL,
+compayIconLocation80 TEXT NULL,
+compayIconLocationA4 TEXT NULL
+)
